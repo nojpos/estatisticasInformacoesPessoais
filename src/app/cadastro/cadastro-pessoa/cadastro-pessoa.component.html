@@ -1,0 +1,45 @@
+<div class="container">
+    <br>
+    <div class="form-row align-items-center">
+        <div class="col-6">
+            <label>Nome</label>
+            <input id="nome" type="text" class="form-control form-control-sm"
+                placeholder="Digite o seu nome (pressione 'Enter' para adicionar)" [(ngModel)]="pessoa.nome"
+                autocomplete="off" (keydown.enter)="passarParaCampoIdade()">
+        </div>
+        <div class="col-2">
+            <label>Nome</label>
+            <input id="idade" type="number" class="form-control form-control-sm"
+                placeholder="Digite a sua idade" [(ngModel)]="pessoa.idade"
+                autocomplete="off" (keydown.enter)="adicionar()">
+        </div>
+        <div class="col-2">
+            <button id="btnEnviar" class="btn btn-outline-secondary btn-block btn-sm btn-adicionar" (click)="adicionar()">Adicionar</button>
+        </div>
+    </div>
+
+    <br>
+    <table
+        class="table table-striped table-light table-sm  table-bordered table-hover shadow-lg p-3 mb-5 bg-white rounded">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th class="text-right">Excluir</th>
+            </tr>
+        <tbody>
+            <tr *ngFor="let item of listaPessoa" id="{{ item.id }}">
+                <td>{{item.nome}}</td>
+                <td>{{item.idade}}</td>
+                <td class="text-right">
+                    <button id="btnExcluir" type="button" class="btn btn-outline-danger btn-sm" (click)="excluir(item.id)"><i class="material-icons">clear</i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Total de pessoas cadastradas {{ totalPessoa }}</p>
+    <div>
+        <p>Pessoa mais jovem: {{ pessoaJovem.nome }}, {{ pessoaJovem.idade }} anos</p>
+        <p>Pessoa mais idosa: {{ pessoaIdosa.nome }}, {{ pessoaIdosa.idade }} anos</p>
+    </div>
+</div>

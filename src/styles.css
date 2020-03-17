@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+.btn-adicionar {
+    margin-top: 30px;
+}
+
+.table th:first-child,
+.table th:last-child,
+.table td:first-child,
+.table td:last-child {
+    width: 152px !important;
+}
