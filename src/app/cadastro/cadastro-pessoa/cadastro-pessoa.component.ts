@@ -13,6 +13,7 @@ export class CadastroPessoaComponent implements OnInit {
   totalPessoa: number = 0;
   pessoaJovem: Pessoa = new Pessoa;
   pessoaIdosa: Pessoa = new Pessoa;
+  pessoaExcluída = ''
 
   constructor() { }
 
@@ -57,9 +58,11 @@ export class CadastroPessoaComponent implements OnInit {
 
   excluir(id) {
     let pessoaId = this.listaPessoa.findIndex(cd => cd.id === id);
+    this.pessoaExcluída = this.listaPessoa[pessoaId].nome;
     this.listaPessoa.splice(pessoaId, 1);
+    alert('O registro ' + this.pessoaExcluída + ' Foi excluído com sucesso');
+    this.pessoaExcluída = '';
     this.totalPessoa -= 1;
-
     this.ordenarLista()
   }
 

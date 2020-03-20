@@ -8,3 +8,10 @@
 .table td:last-child {
     width: 152px !important;
 }
+
+.material-icons {
+    font-size: 20px;
+    width: 24px;
+    overflow: hidden;
+    vertical-align: middle;
+}
